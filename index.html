@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Account - Retro Puzzle</title>
     <style>
+        /* CSS Variables */
         :root {
             --primary-color: #7c5cff;
             --secondary-color: #ff5c8d;
@@ -12,8 +13,11 @@
             --text-color: #333333;
             --card-bg: #ffffff;
             --accent-color: #ffcb5c;
+            --border-radius: 15px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
+        /* General Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -26,33 +30,34 @@
             align-items: center;
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 600px;
-            padding: 40px;
+            width: 90%;
+            padding: 30px;
             background-color: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             text-align: center;
             margin: 20px;
         }
-        
+
         h1 {
             color: var(--primary-color);
             margin-bottom: 20px;
             font-size: 28px;
         }
-        
+
         .logo {
             width: 120px;
             margin-bottom: 20px;
         }
-        
+
         p {
             margin-bottom: 20px;
             font-size: 16px;
         }
-        
+
         .contact-box {
             background-color: rgba(124, 92, 255, 0.1);
             border-left: 4px solid var(--primary-color);
@@ -61,7 +66,7 @@
             text-align: left;
             border-radius: 0 8px 8px 0;
         }
-        
+
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -73,38 +78,63 @@
             margin-top: 15px;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        
-        .btn:hover {
+
+        .btn:hover,
+        .btn:focus {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(124, 92, 255, 0.4);
+            outline: none;
         }
-        
+
         .footer {
             margin-top: 30px;
             font-size: 14px;
             color: #777;
         }
-        
+
         .icon {
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 0.5em;
             vertical-align: middle;
-            margin-right: 8px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Replace with your actual logo -->
-        <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Logo -->
+        <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Retro Puzzle Logo">
             <rect x="10" y="10" width="35" height="35" rx="5" fill="#7c5cff" />
             <rect x="55" y="10" width="35" height="35" rx="5" fill="#ff5c8d" />
             <rect x="10" y="55" width="35" height="35" rx="5" fill="#ffcb5c" />
             <rect x="55" y="55" width="35" height="35" rx="5" fill="#7c5cff" opacity="0.7" />
         </svg>
-        
+
         <h1>Delete Your Account</h1>
-        
+
         <p>We're sorry to see you go. If you'd like to delete your Retro Puzzle account and all associated data, please contact our support team.</p>
-        
+
+        <!-- Contact Box -->
         <div class="contact-box">
             <p><strong>How to request account deletion:</strong></p>
             <p>
@@ -128,14 +158,21 @@
                 Subject line: "Account Deletion Request"
             </p>
         </div>
-        
+
         <p>Your request will be processed within 48 hours, and you'll receive a confirmation email once completed.</p>
-        
+
+        <!-- Contact Button -->
         <a href="mailto:hanstudiosofficial@gmail.com?subject=Account%20Deletion%20Request" class="btn">Contact Support</a>
-        
+
+        <!-- Footer -->
         <div class="footer">
-            <p>Retro Puzzle &copy; 2025 • <a href="#" style="color: #777;">Privacy Policy</a> • <a href="#" style="color: #777;">Terms of Service</a></p>
+            <p>Retro Puzzle &copy; <span id="current-year"></span> • <a href="privacy-policy.html" style="color: #777;">Privacy Policy</a> • <a href="terms-of-service.html" style="color: #777;">Terms of Service</a></p>
         </div>
     </div>
+
+    <!-- Dynamic Year Script -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
